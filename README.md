@@ -5,7 +5,7 @@ An open source block explorer for Hush written in node.js based on [Iquidus Expl
 
 ### See it in action
 
-*  [Hush explorer](http://explorer.myhush.info)
+*  [Tush explorer](http://testnet.myhush.org)
 
 *note: If you would like your instance mentioned here contact me*
 
@@ -25,9 +25,13 @@ Create databse:
 
     > use explorerdb
 
-Create user with read/write access:
+* livenet HUSH: Create user with read/write access:
 
-    > db.createUser( { user: "hush", pwd: "3xp!0reR", roles: [ "readWrite" ] } )
+        db.createUser( { user: "hush", pwd: "3xp!0reR", roles: [ "readWrite" ] } )
+
+* testnet TUSH: Create user with read/write access:
+
+        db.createUser( { user: "tush", pwd: "3xp!0reR", roles: [ "readWrite" ] } )
 
 
 ### Get the source
@@ -40,7 +44,13 @@ Create user with read/write access:
 
 ### Configure
 
-    cp ./settings.json.template ./settings.json
+* livenet HUSH 
+ 
+        cp ./settings.json.template ./settings.json
+ 
+* testnet TUSH 
+
+        cp ./tushsettings.json.template ./settings.json
 
 *Make required changes in settings.json e.g. your rpc username/password*
 
@@ -50,7 +60,7 @@ Create user with read/write access:
 
 *note: mongod must be running to start the explorer-hush*
 
-As of version 1.4.0 the explorer defaults to cluster mode, forking an instance of its process to each cpu core. This results in increased performance and stability. Load balancing gets automatically taken care of and any instances that for some reason die, will be restarted automatically. For testing/development (or if you just wish to) a single instance can be launched with
+The explorer defaults to cluster mode, forking an instance of its process to each cpu core. This results in increased performance and stability. Load balancing gets automatically taken care of and any instances that for some reason die, will be restarted automatically. For testing/development (or if you just wish to) a single instance can be launched with
 
     node --stack-size=10000 bin/instance
 
@@ -92,9 +102,17 @@ sync.js (located in scripts/) is used for updating the local databases. This scr
 
 ### Wallet
 
-Iquidus Explorer is intended to be generic so it can be used with any wallet following the usual standards. The wallet must be running with atleast the following flags
+The HUSH/TUSH wallet must be running with at least the following flags
 
-    -daemon -txindex
+    -daemon -txindex 
+
+* livenet HUSH
+   
+        ./hushd -txindex
+
+* testnet TUSH
+
+        ./hushd -testnet -txindex
 
 ### Donate
 
