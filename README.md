@@ -4,8 +4,12 @@ Hush Explorer - 1.6.1
 An open source block explorer for Hush written in node.js based on [Iquidus Explorer - 1.6.1](https://github.com/iquidus/explorer)
 
 ### See it in action
-
-*  [Tush explorer](http://testnet.myhush.org)
+*  [Hush explorer](https://explorer2.myhush.info)
+*  [Hush explorer](https://explorer2.myhush.online)
+*  [Hush explorer](http://188.165.212.101:3003/)
+*  [Tush explorer](https://testnet2.myhush.info)
+*  [Tush explorer](https://testnet2.myhush.online)
+*  [Tush explorer](http://188.165.212.101:3004/)
 
 *note: If you would like your instance mentioned here contact me*
 
@@ -96,9 +100,9 @@ sync.js (located in scripts/) is used for updating the local databases. This scr
 
 *Example crontab; update index every minute and market data every 2 minutes*
 
-    */1 * * * * cd /path/to/explorer-hush && /usr/bin/nodejs scripts/sync.js index update > /dev/null 2>&1
-    */2 * * * * cd /path/to/explorer-hush && /usr/bin/nodejs scripts/sync.js market > /dev/null 2>&1
-    */5 * * * * cd /path/to/explorer-hush && /usr/bin/nodejs scripts/peers.js > /dev/null 2>&1
+    */1 * * * * cd /path/to/explorer-hush && node scripts/sync.js index update > /dev/null 2>&1
+    */2 * * * * cd /path/to/explorer-hush && node scripts/sync.js market > /dev/null 2>&1
+    */5 * * * * cd /path/to/explorer-hush && node scripts/peers.js > /dev/null 2>&1
 
 ### Wallet
 
